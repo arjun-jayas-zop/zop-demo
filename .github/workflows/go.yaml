@@ -7,8 +7,8 @@ on:
     branches: [ development ]
 
 env:
-  SERVICE_NAME: zop
-  NAMESPACE: newapp
+  SERVICE_NAME: backend
+  NAMESPACE: demo
   CLUSTER_NAME: cluster
   CLUSTER_PROJECT: zopdev-test
   GAR_PROJECT: zopdev-test
@@ -39,7 +39,7 @@ jobs:
         with:
           registry: us-central1-docker.pkg.dev
           username: _json_key
-          password: ${{ secrets.ZOP_NEWAPP_DEPLOYMENT_KEY }}
+          password: ${{ secrets.BACKEND_DEMO_DEPLOYMENT_KEY }}
 
       - name: Build and Push Docker Image to GAR
         uses: docker/build-push-action@v2
@@ -67,7 +67,7 @@ jobs:
       - name: Authorize to GCP service account
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.ZOP_NEWAPP_DEPLOYMENT_KEY }}
+          credentials_json: ${{ secrets.BACKEND_DEMO_DEPLOYMENT_KEY }}
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
