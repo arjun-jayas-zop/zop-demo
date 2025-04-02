@@ -26,7 +26,7 @@ func main() {
 		name := c.Param("name")
 		if name == "" {
 			c.Log("Name came empty")
-			name = "From Zop"
+			name = "World"
 		}
 
 		return fmt.Sprintf("Hello %s!", name), nil
